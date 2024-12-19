@@ -2,11 +2,18 @@
   "name": "uxm911",
   "version": "1.0.0",
   "description": "Quick request to ServiceDesk",
-  "main": "index.js",
+  "main": "src",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "chokidar": "^4.0.3"
+  },
+  "dependencies": {
+    "bootswatch": "^5.3.3",
+    "dotenv": "^16.4.7"
+  }
 }
