@@ -1,0 +1,12 @@
+[Unit]
+Description=Send request to Support via Telegram
+After=network.target
+
+[Service]
+ExecStart=node .
+WorkingDirectory=/home/uxm911/uxm911
+User=uxm911
+Group=uxm911
+
+[Install]
+WantedBy=multi-user.target
