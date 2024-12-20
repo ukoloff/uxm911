@@ -29,7 +29,7 @@ async function serve(req) {
   var input = JSON.parse(data)
   var html = 'Обращение в техподдержку'
   for (var [k, v] of Object.entries(items)) {
-    html += `${v}: <i>${h(input[k]).trim() || '-'}</i>`
+    html += `\n${v}: <i>${h(input[k]).trim() || '-'}</i>`
   }
   var f = await fetch(`https://api.telegram.org/bot${process.env.TOKEN}/sendMessage`, {
     method: 'POST',
