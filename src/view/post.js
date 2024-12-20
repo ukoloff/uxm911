@@ -1,4 +1,12 @@
+const h = require('./h')
+
 module.exports = post
+
+const items = {
+  room: 'Комната',
+  notes: 'Описание проблемы',
+  contact: 'Контакт',
+}
 
 async function post(req, res) {
   try {
@@ -18,5 +26,13 @@ async function serve(req) {
   for await (const chunk of req) {
     data += chunk
   }
-  return JSON.parse(data)
+  var input = JSON.parse(data)
+  var html = 'Обращение в техподдержку'
+  for (var [k, v] of Object.entries(items)) {
+    html += `<br>${v}: <i>${h(input[k]).trim() || '-'}</i>`
+  }
+  return {
+    parse_mode: 'HTML',
+    text: html,
+  }
 }
