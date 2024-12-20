@@ -31,8 +31,18 @@ async function serve(req) {
   for (var [k, v] of Object.entries(items)) {
     html += `<br>${v}: <i>${h(input[k]).trim() || '-'}</i>`
   }
-  return {
-    parse_mode: 'HTML',
-    text: html,
-  }
+  var f = await fetch(`https://api.telegram.org/bot${process.env.TOKEN}}/sendMessage`, {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      parse_mode: 'HTML',
+      text: html,
+      chat_id: Number(process.env.TGR),
+    })
+  })
+
+  var r = await f.json()
+  return r
 }
