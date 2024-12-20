@@ -29,15 +29,15 @@ async function serve(req) {
   var input = JSON.parse(data)
   var html = 'Обращение в техподдержку'
   for (var [k, v] of Object.entries(items)) {
-    html += `<br>${v}: <i>${h(input[k]).trim() || '-'}</i>`
+    html += `${v}: <i>${h(input[k]).trim() || '-'}</i>`
   }
-  var f = await fetch(`https://api.telegram.org/bot${process.env.TOKEN}}/sendMessage`, {
+  var f = await fetch(`https://api.telegram.org/bot${process.env.TOKEN}/sendMessage`, {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      parse_mode: 'HTML',
+      parse_mode: 'html',
       text: html,
       chat_id: Number(process.env.TGR),
     })
