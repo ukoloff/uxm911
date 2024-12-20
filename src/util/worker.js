@@ -1,5 +1,5 @@
 const http = require('node:http')
-const hello = require('../view/hello')
+const route = require('../route')
 
-http.createServer(hello)
+http.createServer(route)
   .listen(process.env.PRT || 6789, 'localhost')
