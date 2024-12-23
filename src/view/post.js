@@ -14,7 +14,8 @@ async function post(req, res) {
   } catch (e) {
     data = {
       error: e.name,
-      message: e.message
+      message: e.message,
+      stack: e.stack || null,
     }
   }
   res.setHeader('Content-Type', 'application/json')
