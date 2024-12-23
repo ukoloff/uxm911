@@ -12,14 +12,21 @@ async function post(req, res) {
   try {
     var data = await serve(req)
   } catch (e) {
-    data = {
-      error: e.name,
-      message: e.message,
-      stack: e.stack || null,
-    }
+    data = dumpErr(e)
   }
   res.setHeader('Content-Type', 'application/json')
   res.end(JSON.stringify(data))
+}
+
+function dumpErr(err, level = 0) {
+  if (!err || level > 3)
+    return
+  return {
+    error: err.name,
+    message: err.message,
+    stack: err.stack || null,
+    cause: dumpErr(err.cause, level + 1)
+  }
 }
 
 async function serve(req) {
