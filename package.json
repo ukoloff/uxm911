@@ -4,7 +4,8 @@
   "description": "Quick request to ServiceDesk",
   "main": "src",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node .",
+    "restart": "systemctl restart wiki1c"
   },
   "keywords": [],
   "author": "",
