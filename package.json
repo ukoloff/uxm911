@@ -5,7 +5,7 @@
   "main": "src",
   "scripts": {
     "start": "node .",
-    "restart": "systemctl restart wiki1c"
+    "restart": "systemctl restart uxm911"
   },
   "keywords": [],
   "author": "",
