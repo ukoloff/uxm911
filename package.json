@@ -14,7 +14,7 @@
     "chokidar": "^4.0.3"
   },
   "dependencies": {
-    "bootswatch": "^5.3.3",
+    "bootswatch": "^4.6.2",
     "dotenv": "^16.4.7",
     "font-awesome": "^4.7.0"
   }
